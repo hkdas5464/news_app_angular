@@ -1,0 +1,58 @@
+<div>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-2">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/headlines">News</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            aria-label="Amount (to the nearest dollar)"
+            #input
+          />
+          <button
+            class="btn btn-outline-success my-2 my-sm-0"
+            (click)="getnews(input.value)"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+<!-- <div *ngIf="loaderSer"></div> -->
+
+<div>
+  <div class="mt-4">
+    <div class="container-fluid mt-5 ">
+      <h1 class="space">{{ space }}</h1>
+      <h5 class="">{{ title }}</h5>
+      <div class="row">
+        <div *ngFor="let hedline of NewsDetails" class="col-lg-3 mt-3 mb-3">
+          <div class="box shadow p-3 mb-5 bg-white rounded">
+            <img src="{{ hedline.image }}" width="100%" />
+            <h5 class="mt-2 mb-2">{{ hedline.title }}</h5>
+            <p>{{ hedline.description }}</p>
+            <a class="btn btn-success btn-sm mt-2" href="{{ hedline.url }}"
+              >Readmoreooo</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
